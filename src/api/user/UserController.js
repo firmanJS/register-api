@@ -1,6 +1,6 @@
 const Users = require('../../models/UserModel')
 const { paging, customResponse } = require('../../utils')
-
+const select = ['user_id', 'name', 'email', 'address', 'photos', 'creditcard']
 const store = async (input, res) => {
   try {
     const creditcard = {
@@ -30,9 +30,10 @@ const show = async (req, res) => {
     const user_id = +req?.params.user_id || 'NaN'
     if (user_id === 'NaN') {
       const paginate = paging(req)
-      const row = await Users.find(paginate.where)
+      const row = await Users.find(paginate.where).select(select)
         .skip((paginate.limit * paginate.page) - paginate.limit)
-        .limit(paginate.limit).sort(paginate.sort)
+        .limit(paginate.limit)
+        .sort(paginate.sort)
       const count = await Users.estimatedDocumentCount()
       const dataMapping = {
         count,
@@ -40,8 +41,13 @@ const show = async (req, res) => {
       }
       customResponse(res, dataMapping, 200)
     } else {
-      const result = await Users.find({ user_id })
+      const result = await Users.find({ user_id }, { _id: 0 }).select(select)
       if (result[0]?.name) {
+        result.map((r) => {
+          delete r._id
+
+          return r
+        })
         customResponse(res, result, 200)
       } else {
         const message = { error: 'User not found.' }
