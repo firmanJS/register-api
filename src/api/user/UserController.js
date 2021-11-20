@@ -1,6 +1,10 @@
 const Users = require('../../models/UserModel')
 const { paging, customResponse } = require('../../utils')
 
+const message = {
+  error: 'Something went wrong. Please try again later.'
+}
+
 const select = ['user_id', 'name', 'email', 'address', 'photos', 'creditcard']
 const store = async (input, res) => {
   try {
@@ -22,7 +26,7 @@ const store = async (input, res) => {
     const result = await Users.create(data)
     customResponse(res, { user_id: result.user_id }, 200)
   } catch (error) {
-    customResponse(res, error, 500)
+    customResponse(res, message, 500)
   }
 }
 
@@ -55,15 +59,11 @@ const show = async (req, res) => {
         })
         customResponse(res, result, 200)
       } else {
-        const message = { error: 'User not found.' }
-        customResponse(res, message, 404)
+        const messages = { error: 'User not found.' }
+        customResponse(res, messages, 404)
       }
     }
   } catch (error) {
-    console.log(error);
-    const message = {
-      error: 'Something went wrong. Please try again later.'
-    }
     customResponse(res, message, 500)
   }
 }
@@ -91,9 +91,6 @@ const update = async (req, res) => {
       { $set: data }, { new: true })
     customResponse(res, { success: true }, 500)
   } catch (error) {
-    const message = {
-      error: 'Something went wrong. Please try again later.'
-    }
     customResponse(res, message, 500)
   }
 }
