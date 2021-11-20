@@ -1,5 +1,6 @@
 const Users = require('../../models/UserModel')
 const { paging, customResponse } = require('../../utils')
+
 const select = ['user_id', 'name', 'email', 'address', 'photos', 'creditcard']
 const store = async (input, res) => {
   try {
