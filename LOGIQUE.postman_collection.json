@@ -18,7 +18,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"asd\",\n    \"address\":\"adam\",\n    \"email\":\"adam@gmail.com\",\n    \"password\":\"adam@gmail.com\",\n    \"photos\":[\"a.jpg\",\"b.jpg\"],\n    \"creditcard_type\":\"adam\",\n    \"creditcard_number\":\"adam\",\n    \"creditcard_name\":\"adam\",\n    \"creditcard_expired\":\"adam\",\n    \"creditcard_ccv\":\"adam\"\n}",
+					"raw": "{\n    \"name\":\"ucing\",\n    \"address\":\"adam\",\n    \"email\":\"adam@gmail.com\",\n    \"password\":\"adam@gmail.com\",\n    \"photos\":[\"a.jpg\",\"b.jpg\"],\n    \"creditcard_type\":\"adam\",\n    \"creditcard_number\":\"adam\",\n    \"creditcard_name\":\"adam\",\n    \"creditcard_expired\":\"adam\",\n    \"creditcard_ccv\":\"adam\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -151,6 +151,33 @@
 					"path": [
 						"user",
 						"list"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "ucing",
+							"disabled": true
+						},
+						{
+							"key": "ob",
+							"value": "name",
+							"disabled": true
+						},
+						{
+							"key": "sb",
+							"value": "asc",
+							"disabled": true
+						},
+						{
+							"key": "of",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "lt",
+							"value": "30",
+							"disabled": true
+						}
 					]
 				}
 			},

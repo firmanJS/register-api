@@ -3,8 +3,8 @@ module.exports = {
   SEARCH: {
     status: true
   },
-  LIMIT: 5,
-  OFFSET: 1,
+  LIMIT: 30,
+  OFFSET: 0,
   PAGE: 1,
   MONGO: {
     SORT: [1, -1], // 1 = ASC -1 = DESC

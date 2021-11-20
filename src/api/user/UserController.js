@@ -31,10 +31,14 @@ const show = async (req, res) => {
     const user_id = +req?.params.user_id || 'NaN'
     if (user_id === 'NaN') {
       const paginate = paging(req)
-      const row = await Users.find(paginate.where, { _id: 0 }).select(select)
-        .skip((paginate.limit * paginate.page) - paginate.limit)
-        .limit(paginate.limit)
-        .sort(paginate.sort)
+      const {
+        order, sort, search, limit, offset
+      } = paginate
+
+      const row = await Users.find(search, { _id: 0 }).select(select)
+        .skip(offset)
+        .limit(limit)
+        .sort({ [order]: [sort] })
       const count = await Users.estimatedDocumentCount()
       const dataMapping = {
         count,
@@ -56,6 +60,7 @@ const show = async (req, res) => {
       }
     }
   } catch (error) {
+    console.log(error);
     const message = {
       error: 'Something went wrong. Please try again later.'
     }
