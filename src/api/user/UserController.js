@@ -31,7 +31,7 @@ const show = async (req, res) => {
     const user_id = +req?.params.user_id || 'NaN'
     if (user_id === 'NaN') {
       const paginate = paging(req)
-      const row = await Users.find(paginate.where).select(select)
+      const row = await Users.find(paginate.where, { _id: 0 }).select(select)
         .skip((paginate.limit * paginate.page) - paginate.limit)
         .limit(paginate.limit)
         .sort(paginate.sort)
