@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "5c40c7c0-109c-4bf3-8ec8-d2960c226970",
+		"name": "LOGIQUE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "REGISTER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "key",
+						"type": "text",
+						"value": "HiJhvL$T27@1u^%u86g"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"asd\",\n    \"address\":\"adam\",\n    \"email\":\"adam@gmail.com\",\n    \"password\":\"adam@gmail.com\",\n    \"photos\":[\"a.jpg\",\"b.jpg\"],\n    \"creditcard_type\":\"adam\",\n    \"creditcard_number\":\"adam\",\n    \"creditcard_name\":\"adam\",\n    \"creditcard_expired\":\"adam\",\n    \"creditcard_ccv\":\"adam\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "key",
+						"type": "text",
+						"value": "HiJhvL$T27@1u^%u86g"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 24,\n    \"name\":\"asdasd\",\n    \"address\":\"adam\",\n    \"email\":\"adam@gmail.com\",\n    \"password\":\"adam@gmail.com\",\n    \"photos\":[\"a.jpg\",\"b.jpg\"],\n    \"creditcard_type\":\"adam\",\n    \"creditcard_number\":\"adam\",\n    \"creditcard_name\":\"adam\",\n    \"creditcard_expired\":\"adam\",\n    \"creditcard_ccv\":\"adam\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User detail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "key",
+						"type": "text",
+						"value": "HiJhvL$T27@1u^%u86g"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"asd\",\n    \"address\":\"adam\",\n    \"email\":\"adam@gmail.com\",\n    \"password\":\"adam@gmail.com\",\n    \"photos\":[\"a.jpg\",\"b.jpg\"],\n    \"creditcard_type\":\"adam\",\n    \"creditcard_number\":\"adam\",\n    \"creditcard_name\":\"adam\",\n    \"creditcard_expired\":\"adam\",\n    \"creditcard_ccv\":\"adam\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/:user_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						":user_id"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "26"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "key",
+						"type": "text",
+						"value": "HiJhvL$T27@1u^%u86g"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
